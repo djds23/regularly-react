@@ -1,0 +1,11 @@
+.SelectionBox {
+  border-width: .2em;
+  border-color: gray;
+  border-radius: 10px;
+  border-style: solid;
+
+  padding-top: .3em;
+  margin-left: 22em;
+  margin-right: 22em;
+}
+

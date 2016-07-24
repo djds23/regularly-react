@@ -1,12 +1,14 @@
 import React from 'react'
 
 class ServiceEmbed extends React.Component {
+  iframe() {
+    return {
+      __html: this.props.embed
+    }
+  }
   render() {
     return (
-      <div>
-        <p>{this.props.serviceName}</p>
-        <div dangerouslySetInnerHTML={this.props.embed} />
-      </div>
+      <div dangerouslySetInnerHTML={this.iframe()} />
     )
   }
 }
