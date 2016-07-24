@@ -4,31 +4,42 @@ import AlbumSelection from './components/AlbumSelection.js';
 
 
 class App extends Component {
-  data () {
-    return [
-      {
-        id: 1,
-        dueDate: "2016-07-11T00:00:00.000Z",
-        user: {
-          username: 'dean.rex'
-        },
-        album: {
-          name: 'Slanted & Enchanted',
-          id: 1,
-        },
-        artist: {
-          id: 1,
-          name: 'Pavement'
-        },
-        embeds: [
-          {
-            id: 1,
-            serviceName: 'spotify',
-            embed: '<iframe src=\"https://embed.spotify.com/?uri=spotify%3Aalbum%3A2zeCJvQRgrZu1vDSXwabRl\" width=\"300\" height=\"380\" frameborder=\"0\" allowtransparency=\"true\"></iframe>'
+
+  fetchInitialState() {
+    let request = new Request('/api/v1/calendar')
+    let response = fetch(request).then((response) => {
+      return response.json().then((json) => {
+        return this.setState((previousState, currentProps) => {
+          return {
+            dueDates: json.dueDates,
+            fetchCount: previousState.fetchCount + 1
           }
-        ]
-      }
-    ]
+        })
+      })
+    })
+    return response
+  }
+
+  constructor(props) {
+    super(props)
+    this.state = { dueDates: [], fetchCount: 0 }
+  }
+
+  componentDidMount() {
+    this.setState({ dueDates: [], fetchCount: 0 })
+    this.fetchInitialState()
+  }
+
+  availableDueDates() {
+    let dueDates = []
+
+    if (this.state == null) {
+      dueDates = []
+    } else {
+      dueDates = this.state.dueDates
+    }
+
+    return dueDates
   }
 
   render() {
@@ -38,7 +49,7 @@ class App extends Component {
           <h2>More Music Every Week</h2>
         </div>
         <div className="App-intro">
-          {this.data().map(payload => (
+          {this.availableDueDates().map(payload => (
               <AlbumSelection
                 key={payload.id}
                 user={payload.user}
