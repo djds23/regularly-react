@@ -5,21 +5,6 @@ import AlbumSelection from './components/AlbumSelection.js';
 
 class App extends Component {
 
-  fetchInitialState() {
-    let request = new Request('/api/v1/calendar')
-    let response = fetch(request).then((response) => {
-      return response.json().then((json) => {
-        return this.setState((previousState, currentProps) => {
-          return {
-            dueDates: json.dueDates,
-            fetchCount: previousState.fetchCount + 1
-          }
-        })
-      })
-    })
-    return response
-  }
-
   constructor(props) {
     super(props)
     this.state = { dueDates: [], fetchCount: 0 }
@@ -28,18 +13,6 @@ class App extends Component {
   componentDidMount() {
     this.setState({ dueDates: [], fetchCount: 0 })
     this.fetchInitialState()
-  }
-
-  availableDueDates() {
-    let dueDates = []
-
-    if (this.state == null) {
-      dueDates = []
-    } else {
-      dueDates = this.state.dueDates
-    }
-
-    return dueDates
   }
 
   render() {
@@ -64,6 +37,35 @@ class App extends Component {
       </div>
     );
   }
+
+  fetchInitialState() {
+    let request = new Request('/api/v1/calendar')
+    let response = fetch(request).then((response) => {
+      return response.json().then((json) => {
+        return this.setState((previousState, currentProps) => {
+          return {
+            dueDates: json.dueDates,
+            fetchCount: previousState.fetchCount + 1
+          }
+        })
+      })
+    })
+    return response
+  }
+
+  availableDueDates() {
+    let dueDates = []
+
+    if (this.state == null) {
+      dueDates = []
+    } else {
+      dueDates = this.state.dueDates
+    }
+
+    return dueDates
+  }
+
+
 }
 
 export default App;
