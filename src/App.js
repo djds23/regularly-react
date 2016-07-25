@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './background.jpg';
 import Post from './components/Post.js';
 
 
