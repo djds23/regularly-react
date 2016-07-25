@@ -1,11 +1,10 @@
-import React from 'react'
+import React from 'react';
+import './DueDate.css';
 
-class DueDate extends React.Component {
-  render() {
-    return (
-      <p>Selected on {this.props.dueDate}</p>
-    )
-  }
+const DueDate = ({ dueDate }) => {
+  return (
+    <p className='DueDate'>Selected on {dueDate}</p>
+  )
 }
 
 export default DueDate

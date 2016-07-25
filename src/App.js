@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import AlbumSelection from './components/AlbumSelection.js';
+import Post from './components/Post.js';
 
 
 class App extends Component {
@@ -11,7 +11,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({ dueDates: [], fetchCount: 0 })
     this.fetchInitialState()
   }
 
@@ -23,7 +22,7 @@ class App extends Component {
         </div>
         <div className="App-intro">
           {this.availableDueDates().map(payload => (
-              <AlbumSelection
+              <Post
                 key={payload.id}
                 user={payload.user}
                 embeds={payload.embeds}
@@ -62,8 +61,6 @@ class App extends Component {
 
     return dueDates
   }
-
-
 }
 
 export default App;
