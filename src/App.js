@@ -26,8 +26,6 @@ class App extends Component {
               <AlbumSelection
                 key={payload.id}
                 user={payload.user}
-                album={payload.album}
-                artist={payload.artist}
                 embeds={payload.embeds}
                 dueDate={payload.dueDate}
                 />

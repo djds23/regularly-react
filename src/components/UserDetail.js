@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import './UserDetail.css';
 
 class UserDetail extends React.Component {
   render() {
     return (
-      <p>Chosen By: {this.props.user.username}</p>
+      <span className='UserDetail'>Chosen By: {this.props.user.username}</span>
     )
   }
 }

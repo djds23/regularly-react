@@ -1,7 +1,4 @@
 import React from 'react';
-import './AlbumSelection.css';
-import Album from './Album.js';
-import Artist from './Artist.js';
 import DueDate from './DueDate.js';
 import UserDetail from './UserDetail.js';
 import ServiceEmbed from './ServiceEmbed.js';
@@ -21,13 +18,11 @@ class AlbumSelection extends React.Component {
   render() {
     return (
       <div>
-        <UserDetail user={this.props.user} />
-        <DueDate dueDate={this.props.dueDate} />
-        <div className="SelectionBox">
-          <Artist artist={this.props.artist} />
-          <Album album={this.props.album} />
+        <div>
           {this.renderServiceName()}
         </div>
+        <UserDetail user={this.props.user} />
+        <DueDate dueDate={this.props.dueDate} />
       </div>
     )
   }

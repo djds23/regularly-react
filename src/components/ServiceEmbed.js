@@ -1,4 +1,5 @@
-import React from 'react'
+import './ServiceEmbed.css';
+import React from 'react';
 
 class ServiceEmbed extends React.Component {
   iframe() {
@@ -8,7 +9,7 @@ class ServiceEmbed extends React.Component {
   }
   render() {
     return (
-      <div dangerouslySetInnerHTML={this.iframe()} />
+      <div className='EmbedBox' dangerouslySetInnerHTML={this.iframe()} />
     )
   }
 }
