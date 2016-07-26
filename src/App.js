@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import './App.css';
-import './background.jpg';
 import Post from './components/Post.js';
 import More from './components/More.js';
 
@@ -32,7 +32,7 @@ class App extends Component {
                 />
             )
           )}
-          <More onClickCapture={this.moreDueDates} />
+          <More moreDueDates={this.moreDueDates} />
         </div>
       </div>
     );
@@ -52,7 +52,10 @@ class App extends Component {
   }
 
   fetchInitialState() {
-    let request = new Request('/api/v1/calendar')
+    let from = moment().format()
+    let to = moment().subtract(3, 'weeks').format()
+    let queryString = `?from=${from}&to=${to}`
+    let request = new Request('/api/v1/calendar' + queryString)
     return this.fetchAndSetState(request)
   }
 
@@ -61,7 +64,8 @@ class App extends Component {
     if (lastSelection == null) {
       return;
     } {
-      let queryString = `?from=${lastSelection.dueDate}&to=${}`
+      let to = moment(lastSelection.dueDate).subtract(3, 'weeks').format()
+      let queryString = `?from=${lastSelection.dueDate}&to=${to}`
       let request = new Request('/api/v1/calendar' + queryString)
       this.fetchAndSetState(request)
     }
