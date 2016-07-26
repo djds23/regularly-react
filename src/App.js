@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import './background.jpg';
 import Post from './components/Post.js';
+import More from './components/More.js';
 
 
 class App extends Component {
@@ -31,14 +32,14 @@ class App extends Component {
                 />
             )
           )}
+          <More onClickCapture={this.moreDueDates} />
         </div>
       </div>
     );
   }
 
-  fetchInitialState() {
-    let request = new Request('/api/v1/calendar')
-    let response = fetch(request).then((response) => {
+  fetchAndSetState(request) {
+    return fetch(request).then((response) => {
       return response.json().then((json) => {
         return this.setState((previousState, currentProps) => {
           return {
@@ -48,8 +49,24 @@ class App extends Component {
         })
       })
     })
-    return response
   }
+
+  fetchInitialState() {
+    let request = new Request('/api/v1/calendar')
+    return this.fetchAndSetState(request)
+  }
+
+  moreDueDates() {
+    let lastSelection = this.state[-1];
+    if (lastSelection == null) {
+      return;
+    } {
+      let queryString = `?from=${lastSelection.dueDate}&to=${}`
+      let request = new Request('/api/v1/calendar' + queryString)
+      this.fetchAndSetState(request)
+    }
+  }
+
 
   availableDueDates() {
     let dueDates = []
