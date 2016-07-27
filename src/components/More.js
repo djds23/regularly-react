@@ -1,9 +1,14 @@
 import React from 'react';
+import './More.css';
 
 class More extends React.Component {
   render() {
     return (
-      <button onClick={this.handleClick.bind(this)} />
+      <div className='MoreButton' onClick={this.handleClick.bind(this)}>
+        <p className='MoreButtonText' >
+          More
+        </p>
+      </div>
     )
   }
 

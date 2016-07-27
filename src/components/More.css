@@ -1,0 +1,16 @@
+.MoreButton {
+  width: 20em;
+  height: 4em;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+
+  background-color: #FF0000;
+  border-radius: 10px;
+}
+
+.MoreButtonText {
+  margin-top: 2em;
+  padding-top: 1.4em;
+}

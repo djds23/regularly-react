@@ -22,7 +22,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>More Music Every Week</h2>
+          <h2>Regularly</h2>
+          <h4>Regular Music for Regular People</h4>
         </div>
         <div className="App-intro">
           {this.state.dueDates.map(payload => (
