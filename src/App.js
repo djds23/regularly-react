@@ -13,7 +13,16 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchInitialState()
+    this.props.calendar.fetch({
+      from: moment(),
+      to: moment().subtract(4, 'weeks')
+    }).then((updatedCalendar) => {
+      this.setState((previousState, currentProps) => {
+        return {
+          dueDates: updatedCalendar.collection()
+        }
+      })
+    })
   }
 
   render() {
@@ -38,36 +47,12 @@ class App extends Component {
     );
   }
 
-  fetchAndSetState(request) {
-    return fetch(request).then((response) => {
-      return response.json().then((json) => {
-        return this.setState((previousState, currentProps) => {
-          return {
-            dueDates: json.dueDates,
-            fetchCount: previousState.fetchCount + 1
-          }
-        })
-      })
-    })
-  }
-
-  fetchInitialState() {
-    let from = moment().format()
-    let to = moment().subtract(3, 'weeks').format()
-    let queryString = `?from=${from}&to=${to}`
-    let request = new Request('/api/v1/calendar' + queryString)
-    return this.fetchAndSetState(request)
-  }
-
   moreDueDates() {
     let lastSelection = this.state[-1];
     if (lastSelection == null) {
       return;
     } {
       let to = moment(lastSelection.dueDate).subtract(3, 'weeks').format()
-      let queryString = `?from=${lastSelection.dueDate}&to=${to}`
-      let request = new Request('/api/v1/calendar' + queryString)
-      this.fetchAndSetState(request)
     }
   }
 
