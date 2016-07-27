@@ -13,16 +13,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.props.calendar.fetch({
-      from: moment(),
-      to: moment().subtract(4, 'weeks')
-    }).then((updatedCalendar) => {
-      this.setState((previousState, currentProps) => {
-        return {
-          dueDates: updatedCalendar.collection()
-        }
-      })
-    })
+    let from = moment()
+    let to = moment().subtract(4, 'weeks')
+    this.fetchFromCalendar(from, to)
   }
 
   render() {
@@ -32,7 +25,7 @@ class App extends Component {
           <h2>More Music Every Week</h2>
         </div>
         <div className="App-intro">
-          {this.availableDueDates().map(payload => (
+          {this.state.dueDates.map(payload => (
               <Post
                 key={payload.id}
                 user={payload.user}
@@ -41,32 +34,34 @@ class App extends Component {
                 />
             )
           )}
-          <More moreDueDates={this.moreDueDates} />
+          <More moreDueDates={this.moreDueDates.bind(this)} />
         </div>
       </div>
     );
   }
 
   moreDueDates() {
-    let lastSelection = this.state[-1];
+    let lastSelection = this.state.dueDates.slice(-1).pop();
     if (lastSelection == null) {
       return;
-    } {
-      let to = moment(lastSelection.dueDate).subtract(3, 'weeks').format()
+    } else {
+      let from = moment(lastSelection.dueDate)
+      let to = moment(lastSelection.dueDate).subtract(3, 'weeks')
+      this.fetchFromCalendar(from, to)
     }
   }
 
-
-  availableDueDates() {
-    let dueDates = []
-
-    if (this.state == null) {
-      dueDates = []
-    } else {
-      dueDates = this.state.dueDates
-    }
-
-    return dueDates
+  fetchFromCalendar(from, to) {
+    this.props.calendar.fetch({
+      from: from,
+      to: to
+    }).then((updatedCalendar) => {
+      this.setState((previousState, currentProps) => {
+        return {
+          dueDates: updatedCalendar.collection()
+        }
+      })
+    })
   }
 }
 

@@ -1,9 +1,21 @@
 import BaseModel from './BaseModel.js';
 
 class AlbumDueDate extends BaseModel {
-  constructor(props) {
+  constructor({
+    id,
+    dueDate,
+    user,
+    album,
+    artist,
+    embeds
+  }) {
     super()
-    this._props = props
+    this.id = id
+    this.dueDate = dueDate
+    this.user = user
+    this.album = album
+    this.artist = artist
+    this.embeds = embeds
   }
 }
 

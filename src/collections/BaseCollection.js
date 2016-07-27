@@ -26,11 +26,21 @@ class BaseCollection {
     return fetch(request).then((response) => {
       this.fetchCount += 1
       return response.json().then((json) => {
-        let formattedJson = this._format(json)
-        this._collection = this._collection.concat(formattedJson)
-        this._collection = this._collection.map(props => this.modelify(props))
+        this.handleJSON(json)
       }).then(() => this.promisedCalendar())
     })
+  }
+
+  handleJSON(json) {
+    let formattedJson = this._format(json)
+    let combinedArray = this._collection.concat(formattedJson)
+    let uniqueArray =  this.removeDuplicates(combinedArray)
+    this._collection = uniqueArray.map(props => this.modelify(props))
+  }
+
+  removeDuplicates(array) {
+    let uniqueSet = new Set(array)
+    return [...uniqueSet]
   }
 
   promisedCalendar() {

@@ -4,7 +4,6 @@ import App from './App';
 import './index.css';
 import Calendar from './collections/Calendar.js';
 import AlbumDueDate from './models/AlbumDueDate.js';
-import moment from 'moment';
 
 
 let calendar = new Calendar({
