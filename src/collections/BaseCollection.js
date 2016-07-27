@@ -1,5 +1,10 @@
 class BaseCollection {
 
+  /**
+   * @param endpoint {string} endpoint to fetch collection
+   * @param model {BaseModel} a model to construct collection
+   * @param format {Function} a function to take json, and format it for concatenation
+   */
   constructor({endpoint, model, format}){
     super()
     this.endpoint = endpoint

@@ -1,3 +1,4 @@
+Be careful! broken build!
 STARTING REGULARLY WITH create-react-app
 
 
