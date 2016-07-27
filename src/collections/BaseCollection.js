@@ -6,7 +6,6 @@ class BaseCollection {
    * @param format {Function} a function to take json, and format it for concatenation
    */
   constructor({endpoint, model, format}){
-    super()
     this.endpoint = endpoint
     this.fetchCount = 0
     this._collection = []
