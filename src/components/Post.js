@@ -23,6 +23,8 @@ class Post extends React.Component {
         user={this.props.user}
         embeds={this.props.embeds}
         dueDate={this.props.dueDate}
+        album={this.props.album}
+        artist={this.props.artist}
       />
     )
   }

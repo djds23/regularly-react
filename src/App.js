@@ -31,6 +31,8 @@ class App extends Component {
                 key={payload.id}
                 user={payload.user}
                 embeds={payload.embeds}
+                artist={payload.artist}
+                album={payload.album}
                 dueDate={payload.dueDate}
                 />
             )
