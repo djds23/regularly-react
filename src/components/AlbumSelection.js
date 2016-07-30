@@ -1,15 +1,19 @@
 import React from 'react';
-import Album from './Album.js';
-import Artist from './Artist.js';
 import DueDate from './DueDate.js';
 import UserDetail from './UserDetail.js';
 import ServiceEmbed from './ServiceEmbed.js';
+import ToggleAlbumView from './ToggleAlbumView.js';
 
 class AlbumSelection extends React.Component {
+  constructor () {
+    super()
+    this.state = { showEmbed: false }
+  }
   renderServiceEmbed() {
+    const embedId = (embed) => `${embed.id}-${this.props.album}`
     return this.props.embeds.map(embed => (
         <ServiceEmbed
-          key={embed.id}
+          key={embedId(embed)}
           serviceName={embed.serviceName}
           embed={embed.embed}
         />
@@ -17,12 +21,17 @@ class AlbumSelection extends React.Component {
     )
   }
 
-  renderServiceName() {
+  renderAlbumView() {
     return (
       <div>
         <div className="HideOnDesktop">
-          <Album album={this.props.album} />
-          <Artist artist={this.props.artist} />
+          <ToggleAlbumView
+            embeds={this.props.embeds}
+            album={this.props.album}
+            artist={this.props.artist}
+            showEmbed={this.state.showEmbed}
+            toggleEmbed={this.toggleEmbed.bind(this)}
+          />
         </div>
         <div className="HideOnMobile">
           {this.renderServiceEmbed()}
@@ -35,12 +44,20 @@ class AlbumSelection extends React.Component {
     return (
       <div>
         <div>
-          {this.renderServiceName()}
+          {this.renderAlbumView()}
         </div>
         <UserDetail user={this.props.user} />
         <DueDate dueDate={this.props.dueDate} />
       </div>
     )
+  }
+
+  toggleEmbed() {
+    this.setState((previousState, currentProps) => {
+      return {
+        showEmbed: !previousState.showEmbed
+      }
+    })
   }
 }
 
