@@ -1,9 +1,10 @@
 import React from 'react';
+import './Album.css';
 
 class Album extends React.Component {
   render() {
     return (
-      <p>{this.props.album.name}</p>
+      <p className='AlbumText'>{this.props.album.name}</p>
     )
   }
 }

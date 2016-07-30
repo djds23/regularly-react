@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import './Artist.css';
 
 class Artist extends React.Component {
   render() {
     return (
-      <p>{this.props.artist.name}</p>
+      <p className='ArtistText'>{this.props.artist.name}</p>
     )
   }
 }

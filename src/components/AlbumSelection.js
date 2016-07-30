@@ -24,7 +24,7 @@ class AlbumSelection extends React.Component {
           <Album album={this.props.album} />
           <Artist artist={this.props.artist} />
         </div>
-        <div className="HideOnPhones">
+        <div className="HideOnMobile">
           {this.renderServiceEmbed()}
         </div>
       </div>
