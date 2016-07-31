@@ -29,9 +29,11 @@ class ToggleAlbumView extends React.Component {
 
   render() {
     return (
-      <div className='' onClick={this.handleClick.bind(this)} >
-        <Album album={this.props.album} />
-        <Artist artist={this.props.artist} />
+      <div onClick={this.handleClick.bind(this)} >
+        <a>
+          <Album album={this.props.album} />
+          <Artist artist={this.props.artist} />
+        </a>
         {this.renderServiceEmbed()}
       </div>
     )
