@@ -54,8 +54,6 @@ class AlbumSelection extends React.Component {
         </div>
         <UserDetail user={this.props.user} />
         <DueDate dueDate={this.props.dueDate} />
-        <span className='mega-octicon octicon-link'>
-        </span>
       </div>
     )
   }
