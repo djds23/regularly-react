@@ -1,4 +1,5 @@
 import BaseCollection from './BaseCollection.js';
+import 'whatwg-fetch';
 
 class Calendar extends BaseCollection {
   fetch({resetStore, from, to}) {
