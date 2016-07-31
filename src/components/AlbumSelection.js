@@ -3,12 +3,14 @@ import DueDate from './DueDate.js';
 import UserDetail from './UserDetail.js';
 import ServiceEmbed from './ServiceEmbed.js';
 import ToggleAlbumView from './ToggleAlbumView.js';
+import './AlbumSelection.css';
 
 class AlbumSelection extends React.Component {
   constructor () {
     super()
     this.state = { showEmbed: false }
   }
+
   renderServiceEmbed() {
     const embedId = (embed) => `${embed.id}-${this.props.album}`
     return this.props.embeds.map(embed => (
@@ -21,6 +23,10 @@ class AlbumSelection extends React.Component {
     )
   }
 
+  /**
+   * It may not be the best idea to always render both
+   * the accordion view and the full desktop view.
+   */
   renderAlbumView() {
     return (
       <div>
@@ -42,7 +48,7 @@ class AlbumSelection extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='AlbumSelection'>
         <div>
           {this.renderAlbumView()}
         </div>
@@ -61,4 +67,4 @@ class AlbumSelection extends React.Component {
   }
 }
 
-export default AlbumSelection
+export default AlbumSelection;

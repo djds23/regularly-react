@@ -1,3 +1,8 @@
 .ArtistText {
-  color: #cc0000;
+  color: #222222;
+  font-style: italic;
+}
+
+.Attribution {
+  color: #52c552;
 }
