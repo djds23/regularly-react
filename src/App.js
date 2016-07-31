@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import './App.css';
+import Header from './components/Header.js';
 import Post from './components/Post.js';
 import More from './components/More.js';
 
@@ -13,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    let from = moment()
+    let from = moment().add(1, 'week')
     let to = moment().subtract(4, 'weeks')
     this.fetchFromCalendar(from, to)
   }
@@ -21,10 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Regularly</h2>
-          <h4>Regular Music for Regular People</h4>
-        </div>
+        <Header />
         <div className="App-intro">
           {this.state.dueDates.map(payload => (
               <Post
