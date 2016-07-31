@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import './App.css';
+
 import Header from './components/Header.js';
 import Post from './components/Post.js';
 import More from './components/More.js';
+import Calendar from './collections/Calendar.js';
+import AlbumDueDate from './models/AlbumDueDate.js';
+
 
 
 class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { dueDates: [], fetchCount: 0 }
+
+    this.calendar = new Calendar({
+      endpoint: '/api/v1/calendar',
+      model: AlbumDueDate,
+      format: (json) => json.dueDates
+    })
+   this.state = { dueDates: [], fetchCount: 0 }
   }
 
   componentDidMount() {
@@ -53,7 +63,7 @@ class App extends Component {
   }
 
   fetchFromCalendar(from, to) {
-    this.props.calendar.fetch({
+    this.calendar.fetch({
       from: from,
       to: to
     }).then((updatedCalendar) => {
