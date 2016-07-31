@@ -1,8 +1,5 @@
 import React from 'react';
-import DueDate from './DueDate.js';
-import UserDetail from './UserDetail.js';
 import NoSelection from './NoSelection.js';
-import ServiceEmbed from './ServiceEmbed.js';
 import AlbumSelection from './AlbumSelection.js';
 
 class Post extends React.Component {
