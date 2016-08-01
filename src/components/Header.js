@@ -13,7 +13,7 @@ const Header = () => {
   const element = Math.floor(Math.random() * titles.length)
   return (
     <div className="Header">
-      <h2>Regularly</h2>
+      <h2>One Album a Week</h2>
       <h4>{titles[element]}</h4>
     </div>
   )

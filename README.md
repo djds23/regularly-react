@@ -1,6 +1,13 @@
-Be careful! broken build!
-STARTING REGULARLY WITH create-react-app
+Things to fix and think about:
 
+the single post view does not render a post
+the app is really just the index calendar view
+there should be unit tests for this, probably using Jest
+https://facebook.github.io/jest/
+
+
+
+# Standard `create-react-app` README
 
 Below you will find some information on how to perform common tasks.  
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/template/README.md).

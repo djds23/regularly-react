@@ -31,22 +31,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Header />
-        <div className="App-intro">
-          {this.state.dueDates.map(payload => (
-              <Post
-                key={payload.id}
-                user={payload.user}
-                embeds={payload.embeds}
-                artist={payload.artist}
-                album={payload.album}
-                dueDate={payload.dueDate}
-                />
-            )
-          )}
-          <More moreDueDates={this.moreDueDates.bind(this)} />
-        </div>
+      <div>
+        {this.state.dueDates.map(payload => (
+            <Post
+              key={payload.id}
+              user={payload.user}
+              embeds={payload.embeds}
+              artist={payload.artist}
+              album={payload.album}
+              dueDate={payload.dueDate}
+              />
+          )
+        )}
+        <More moreDueDates={this.moreDueDates.bind(this)} />
       </div>
     );
   }
