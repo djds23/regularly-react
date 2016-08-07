@@ -2,7 +2,6 @@ import React from 'react';
 import 'whatwg-fetch';
 
 import AlbumSelection from './components/AlbumSelection.js';
-import Post from './components/Post.js';
 
 class SinglePost extends React.Component {
   constructor(props) {

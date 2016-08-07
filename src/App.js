@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import './App.css';
 
-import Header from './components/Header.js';
 import Post from './components/Post.js';
 import More from './components/More.js';
 import Calendar from './collections/Calendar.js';
