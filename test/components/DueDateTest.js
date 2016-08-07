@@ -1,11 +1,12 @@
-var assert = require('chai').assert
-var shallow = require('enzyme').shallow
+import { expect } from 'chai';
+import shallow from 'enzyme';
+
+import DueDate from '../../src/components/DueDate.js';
 
 describe('Array', () => {
   describe('#indexOf()', () => {
     it('should return -1 when the value is not present', function() {
-      assert.equal(-1, [1,2,3].indexOf(5));
-      assert.equal(-1, [1,2,3].indexOf(0));
+      expect(true).to.eql(true)
     });
   });
 });
