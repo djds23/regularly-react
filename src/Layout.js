@@ -4,13 +4,13 @@ import Header from './components/Header.js'
 import './App.css'
 
 class Layout extends React.Component {
-  render() {
+  render () {
     return (
-      <div className="App">
+      <div className='App'>
         <IndexLink className='noUnderline' to='/'>
           <Header />
         </IndexLink>
-        <div className="App-intro">
+        <div className='App-intro'>
           {this.props.children}
         </div>
       </div>

@@ -1,9 +1,9 @@
-import React from 'react';
-import DueDate from './DueDate.js';
-import UserDetail from './UserDetail.js';
-import ServiceEmbed from './ServiceEmbed.js';
-import ToggleAlbumView from './ToggleAlbumView.js';
-import './AlbumSelection.css';
+import React from 'react'
+import DueDate from './DueDate.js'
+import UserDetail from './UserDetail.js'
+import ServiceEmbed from './ServiceEmbed.js'
+import ToggleAlbumView from './ToggleAlbumView.js'
+import './AlbumSelection.css'
 
 class AlbumSelection extends React.Component {
   constructor () {
@@ -11,7 +11,7 @@ class AlbumSelection extends React.Component {
     this.state = { showEmbed: false }
   }
 
-  renderServiceEmbed() {
+  renderServiceEmbed () {
     const embedId = (embed) => `${embed.id}-${this.props.album}`
     return this.props.embeds.map(embed => (
         <ServiceEmbed
@@ -27,10 +27,10 @@ class AlbumSelection extends React.Component {
    * It may not be the best idea to always render both
    * the accordion view and the full desktop view.
    */
-  renderAlbumView() {
+  renderAlbumView () {
     return (
       <div>
-        <div className="HideOnDesktop">
+        <div className='HideOnDesktop'>
           <ToggleAlbumView
             embeds={this.props.embeds}
             album={this.props.album}
@@ -39,14 +39,14 @@ class AlbumSelection extends React.Component {
             toggleEmbed={this.toggleEmbed.bind(this)}
           />
         </div>
-        <div className="HideOnMobile">
+        <div className='HideOnMobile'>
           {this.renderServiceEmbed()}
         </div>
       </div>
     )
   }
 
-  render() {
+  render () {
     return (
       <div className='AlbumSelection'>
         <div>
@@ -58,7 +58,7 @@ class AlbumSelection extends React.Component {
     )
   }
 
-  toggleEmbed() {
+  toggleEmbed () {
     this.setState((previousState, currentProps) => {
       return {
         showEmbed: !previousState.showEmbed
@@ -67,4 +67,4 @@ class AlbumSelection extends React.Component {
   }
 }
 
-export default AlbumSelection;
+export default AlbumSelection

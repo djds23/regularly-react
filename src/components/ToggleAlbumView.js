@@ -1,18 +1,18 @@
-import React from 'react';
-import TransitionGroup from 'react/lib/ReactCSSTransitionGroup';
-import Album from './Album.js';
-import Artist from './Artist.js';
-import ServiceEmbed from './ServiceEmbed.js';
-import './ToggleAlbumView.css';
+import React from 'react'
+import TransitionGroup from 'react/lib/ReactCSSTransitionGroup'
+import Album from './Album.js'
+import Artist from './Artist.js'
+import ServiceEmbed from './ServiceEmbed.js'
+import './ToggleAlbumView.css'
 
 class ToggleAlbumView extends React.Component {
 
-  renderServiceEmbed() {
+  renderServiceEmbed () {
     const embedId = (embed) => `${embed.id}-${this.props.album}-toggleable`
     const embedGroup = () => this.props.embeds.map(embed => (
       <TransitionGroup
         key={embedId(embed)}
-        transitionName="fade"
+        transitionName='fade'
         transitionEnterTimeout={5000}
         transitionLeaveTimeout={3000}
         >
@@ -27,7 +27,7 @@ class ToggleAlbumView extends React.Component {
     return this.props.showEmbed ? embedGroup() : null
   }
 
-  render() {
+  render () {
     return (
       <div onClick={this.handleClick.bind(this)} >
         <a>
@@ -39,7 +39,7 @@ class ToggleAlbumView extends React.Component {
     )
   }
 
-  handleClick(event) {
+  handleClick (event) {
     event.preventDefault()
     this.props.toggleEmbed()
   }
@@ -47,4 +47,4 @@ class ToggleAlbumView extends React.Component {
 
 }
 
-export default ToggleAlbumView;
+export default ToggleAlbumView

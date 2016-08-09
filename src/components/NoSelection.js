@@ -1,6 +1,6 @@
-import React from 'react';
-import moment from 'moment';
-import './NoSelection.css';
+import React from 'react'
+import moment from 'moment'
+import './NoSelection.css'
 
 const NoSelection = ({user, dueDate}) => {
   const formattedDate = moment(dueDate).format('ddd, MMM Do YYYY')

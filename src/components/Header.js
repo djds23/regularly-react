@@ -1,5 +1,5 @@
-import React from 'react';
-import './Header.css';
+import React from 'react'
+import './Header.css'
 
 const Header = () => {
   const titles = [
@@ -12,11 +12,11 @@ const Header = () => {
   ]
   const element = Math.floor(Math.random() * titles.length)
   return (
-    <div className="Header">
+    <div className='Header'>
       <h2>One Album a Week</h2>
       <h4>{titles[element]}</h4>
     </div>
   )
 }
 
-export default Header;
+export default Header

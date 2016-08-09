@@ -1,7 +1,7 @@
-import BaseModel from './BaseModel.js';
+import BaseModel from './BaseModel.js'
 
 class AlbumDueDate extends BaseModel {
-  constructor({
+  constructor ({
     id,
     dueDate,
     user,
@@ -19,4 +19,4 @@ class AlbumDueDate extends BaseModel {
   }
 }
 
-export default AlbumDueDate;
+export default AlbumDueDate

@@ -1,20 +1,20 @@
-import React from 'react';
-import 'whatwg-fetch';
+import React from 'react'
+import 'whatwg-fetch'
 
-import AlbumSelection from './components/AlbumSelection.js';
+import AlbumSelection from './components/AlbumSelection.js'
 
 class SinglePost extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = null
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.fetchAlbumSelection()
   }
 
-  render() {
-    let view;
+  render () {
+    let view
     if (this.state == null) {
       view = this.renderLoading()
     } else {
@@ -23,13 +23,13 @@ class SinglePost extends React.Component {
     return view
   }
 
-  renderLoading() {
+  renderLoading () {
     return (
       <p>Loading...</p>
     )
   }
 
-  renderAlbumSelection() {
+  renderAlbumSelection () {
     return (
       <AlbumSelection
         user={this.state.user}
@@ -41,7 +41,7 @@ class SinglePost extends React.Component {
     )
   }
 
-  fetchAlbumSelection() {
+  fetchAlbumSelection () {
     return fetch(this.postRequest()).then((response) => {
       response.json().then((json) => {
         this.setState(json)
@@ -55,4 +55,4 @@ class SinglePost extends React.Component {
 
 }
 
-export default SinglePost;
+export default SinglePost

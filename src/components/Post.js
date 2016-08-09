@@ -1,11 +1,11 @@
-import React from 'react';
-import NoSelection from './NoSelection.js';
-import AlbumSelection from './AlbumSelection.js';
+import React from 'react'
+import NoSelection from './NoSelection.js'
+import AlbumSelection from './AlbumSelection.js'
 
 class Post extends React.Component {
 
-  render() {
-    let renderMethod;
+  render () {
+    let renderMethod
     if (this.props.embeds.length === 0) {
       renderMethod = () => this.renderNoSelection()
     } else {
@@ -14,7 +14,7 @@ class Post extends React.Component {
     return renderMethod()
   }
 
-  renderAlbumSelection() {
+  renderAlbumSelection () {
     return (
       <AlbumSelection
         user={this.props.user}
@@ -26,7 +26,7 @@ class Post extends React.Component {
     )
   }
 
-  renderNoSelection() {
+  renderNoSelection () {
     return (
       <NoSelection
         user={this.props.user}

@@ -1,8 +1,8 @@
-import React from 'react';
-import './Album.css';
+import React from 'react'
+import './Album.css'
 
 class Album extends React.Component {
-  render() {
+  render () {
     return (
       <p className='AlbumText'>{this.props.album.name}</p>
     )

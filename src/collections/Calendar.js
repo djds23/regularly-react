@@ -1,20 +1,20 @@
-import BaseCollection from './BaseCollection.js';
-import 'whatwg-fetch';
+import BaseCollection from './BaseCollection.js'
+import 'whatwg-fetch'
 
 class Calendar extends BaseCollection {
-  fetch({resetStore, from, to}) {
+  fetch ({resetStore, from, to}) {
     let uri = this.getURI(from, to)
     let request = new Request(uri)
     if (resetStore) {
-      this._collection = [];
+      this._collection = []
     }
-    return this.fetchAndStore(request);
+    return this.fetchAndStore(request)
   }
 
-  getURI(from, to) {
+  getURI (from, to) {
     return `${this.endpoint}?from=${from.format()}&to=${to.format()}`
   }
 
 }
 
-export default Calendar;
+export default Calendar
