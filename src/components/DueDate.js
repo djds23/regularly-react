@@ -1,6 +1,6 @@
-import React from 'react';
-import moment from 'moment';
-import './DueDate.css';
+import React from 'react'
+import moment from 'moment'
+import './DueDate.css'
 
 const DueDate = ({ dueDate }) => {
   const formattedDate = moment(dueDate).format('ddd, MMM Do YYYY')
@@ -9,4 +9,4 @@ const DueDate = ({ dueDate }) => {
   )
 }
 
-export default DueDate;
+export default DueDate

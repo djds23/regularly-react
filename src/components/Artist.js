@@ -1,8 +1,8 @@
-import React from 'react';
-import './Artist.css';
+import React from 'react'
+import './Artist.css'
 
 class Artist extends React.Component {
-  render() {
+  render () {
     return (
       <p className='ArtistText'>
         <span className='Attribution'>By&nbsp;</span>

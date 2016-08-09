@@ -1,4 +1,4 @@
 class BaseModel {
 }
 
-export default BaseModel;
+export default BaseModel

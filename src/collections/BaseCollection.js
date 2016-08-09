@@ -1,4 +1,4 @@
-import 'whatwg-fetch';
+import 'whatwg-fetch'
 
 class BaseCollection {
 
@@ -7,7 +7,7 @@ class BaseCollection {
    * @param model {BaseModel} a model to construct collection
    * @param format {Function} a function to take json, and format it for concatenation
    */
-  constructor({endpoint, model, format}){
+  constructor ({endpoint, model, format}) {
     this.endpoint = endpoint
     this.fetchCount = 0
     this._collection = []
@@ -15,16 +15,16 @@ class BaseCollection {
     this._format = format
   }
 
-  collection() {
+  collection () {
     return this._collection
   }
 
 
-  modelify(props) {
+  modelify (props) {
     return new this._model(props)
   }
 
-  fetchAndStore(request) {
+  fetchAndStore (request) {
     return fetch(request).then((response) => {
       this.fetchCount += 1
       return response.json().then((json) => {
@@ -33,19 +33,19 @@ class BaseCollection {
     })
   }
 
-  handleJSON(json) {
+  handleJSON (json) {
     let formattedJson = this._format(json)
     let combinedArray = this._collection.concat(formattedJson)
-    let uniqueArray =  this.removeDuplicates(combinedArray)
+    let uniqueArray = this.removeDuplicates(combinedArray)
     this._collection = uniqueArray.map(props => this.modelify(props))
   }
 
-  removeDuplicates(array) {
+  removeDuplicates (array) {
     let uniqueSet = new Set(array)
     return [...uniqueSet]
   }
 
-  promisedCalendar() {
+  promisedCalendar () {
     let that = this // not sure if I'm supposed to bind for promise callbacks
     return new Promise(function (resolve, reject) {
       resolve(that)
@@ -53,4 +53,4 @@ class BaseCollection {
   }
 }
 
-export default BaseCollection;
+export default BaseCollection

@@ -1,8 +1,8 @@
-import React from 'react';
-import './More.css';
+import React from 'react'
+import './More.css'
 
 class More extends React.Component {
-  render() {
+  render () {
     return (
       <div className='MoreButton' onClick={this.handleClick.bind(this)}>
         <p className='MoreButtonText' >
@@ -12,7 +12,7 @@ class More extends React.Component {
     )
   }
 
-  handleClick(event) {
+  handleClick (event) {
     event.preventDefault()
     this.props.moreDueDates()
   }

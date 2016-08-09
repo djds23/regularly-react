@@ -11,7 +11,7 @@ import AlbumDueDate from './models/AlbumDueDate.js'
 
 class App extends Component {
 
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.calendar = new Calendar({
@@ -19,16 +19,16 @@ class App extends Component {
       model: AlbumDueDate,
       format: (json) => json.dueDates
     })
-   this.state = { dueDates: [], fetchCount: 0 }
+    this.state = { dueDates: [], fetchCount: 0 }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     let from = moment().add(1, 'week')
     let to = moment().subtract(4, 'weeks')
     this.fetchFromCalendar(from, to)
   }
 
-  render() {
+  render () {
     return (
       <div>
         {this.state.dueDates.map(payload => (
@@ -44,13 +44,13 @@ class App extends Component {
         )}
         <More moreDueDates={this.moreDueDates.bind(this)} />
       </div>
-    );
+    )
   }
 
-  moreDueDates() {
-    let lastSelection = this.state.dueDates.slice(-1).pop();
+  moreDueDates () {
+    let lastSelection = this.state.dueDates.slice(-1).pop()
     if (lastSelection == null) {
-      return;
+      return
     } else {
       let from = moment(lastSelection.dueDate)
       let to = moment(lastSelection.dueDate).subtract(3, 'weeks')
@@ -58,7 +58,7 @@ class App extends Component {
     }
   }
 
-  fetchFromCalendar(from, to) {
+  fetchFromCalendar (from, to) {
     this.calendar.fetch({
       from: from,
       to: to
