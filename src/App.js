@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import moment from 'moment';
-import './App.css';
+import React, { Component } from 'react'
+import moment from 'moment'
+import './App.css'
 
-import Post from './components/Post.js';
-import More from './components/More.js';
-import Calendar from './collections/Calendar.js';
-import AlbumDueDate from './models/AlbumDueDate.js';
+import Post from './components/Post.js'
+import More from './components/More.js'
+import Calendar from './collections/Calendar.js'
+import AlbumDueDate from './models/AlbumDueDate.js'
 
 
 
@@ -72,4 +72,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App
