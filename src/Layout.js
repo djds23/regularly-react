@@ -10,7 +10,8 @@ class Layout extends React.Component {
         appId      : '1081772241909189',
         cookie     : true,
         xfbml      : true,
-        version    : 'v2.7'
+        version    : 'v2.7',
+        frictionlessRequests: true
       })
 
       FB.getLoginStatus((response) => {
@@ -25,6 +26,12 @@ class Layout extends React.Component {
       js.src = "//connect.facebook.net/en_US/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+  }
+
+  statusChangeCallback () {
+    // noop for now
+    // TODO finish integrating fb auth:
+    // https://developers.facebook.com/docs/facebook-login/web/
   }
 
   render () {
