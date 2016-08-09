@@ -4,6 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <title>Regular Music for Regular People</title>
+
+    <!-- Open Graph tags from Facebook -->
+    <!-- https://developers.facebook.com/docs/sharing/webmasters#markup -->
+    <meta property="og:url"           content="https://albms.club" >
+    <meta property="og:type"          content="website" >
+    <meta property="og:title"         content="Regular Music for Regular People" >
+    <meta property="og:description"   content="New music delivered weekly." >
+    <!-- End Open Graph tags -->
   </head>
   <body>
     <div id="root"></div>
@@ -14,6 +22,24 @@
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-76481904-1', 'auto');
     ga('send', 'pageview');
+  </script>
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1081772241909189',
+        xfbml      : true,
+        version    : 'v2.7'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
   </script>
   </body>
 </html>

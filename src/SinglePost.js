@@ -32,6 +32,7 @@ class SinglePost extends React.Component {
   renderAlbumSelection () {
     return (
       <AlbumSelection
+        selectionId={this.props.routeParams.postId}
         user={this.state.user}
         embeds={this.state.embeds}
         dueDate={this.state.dueDate}

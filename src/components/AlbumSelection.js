@@ -54,6 +54,15 @@ class AlbumSelection extends React.Component {
         </div>
         <UserDetail user={this.props.user} />
         <DueDate dueDate={this.props.dueDate} />
+       <div
+         className="fb-like"
+         data-href={this.linkForSelection(this.props.selectionId)}
+         data-layout="button"
+         data-action="like"
+         data-size="small"
+         data-show-faces="true"
+         data-share="false">
+       </div>
       </div>
     )
   }
@@ -64,6 +73,10 @@ class AlbumSelection extends React.Component {
         showEmbed: !previousState.showEmbed
       }
     })
+  }
+
+  linkForSelection (id) {
+    return `https://albms.club/posts/${id}`
   }
 }
 

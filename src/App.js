@@ -34,6 +34,7 @@ class App extends Component {
         {this.state.dueDates.map(payload => (
             <Post
               key={payload.id}
+              slectionId={payload.id}
               user={payload.user}
               embeds={payload.embeds}
               artist={payload.artist}

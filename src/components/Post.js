@@ -17,6 +17,7 @@ class Post extends React.Component {
   renderAlbumSelection () {
     return (
       <AlbumSelection
+        selectionId={this.props.selectionId}
         user={this.props.user}
         embeds={this.props.embeds}
         dueDate={this.props.dueDate}
