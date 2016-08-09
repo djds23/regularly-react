@@ -56,7 +56,7 @@ class AlbumSelection extends React.Component {
         <DueDate dueDate={this.props.dueDate} />
        <div
          className="fb-like"
-         data-href={this.linkForSelection(this.props.selectionId)}
+         data-href={this.linkForSelection()}
          data-layout="button"
          data-action="like"
          data-size="small"
@@ -75,8 +75,9 @@ class AlbumSelection extends React.Component {
     })
   }
 
-  linkForSelection (id) {
-    return `https://albms.club/posts/${id}`
+  linkForSelection () {
+    debugger
+    return `https://albms.club/posts/${this.props.selectionId}`
   }
 }
 
