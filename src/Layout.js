@@ -32,6 +32,7 @@ class Layout extends React.Component {
     // noop for now
     // TODO finish integrating fb auth:
     // https://developers.facebook.com/docs/facebook-login/web/
+    // http://stackoverflow.com/questions/27717555/implement-facebook-api-login-with-reactjs
   }
 
   render () {
