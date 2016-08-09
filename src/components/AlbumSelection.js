@@ -76,7 +76,6 @@ class AlbumSelection extends React.Component {
   }
 
   linkForSelection () {
-    debugger
     return `https://albms.club/posts/${this.props.selectionId}`
   }
 }
