@@ -7,8 +7,6 @@ import More from './components/More.js'
 import Calendar from './collections/Calendar.js'
 import AlbumDueDate from './models/AlbumDueDate.js'
 
-
-
 class App extends Component {
 
   constructor (props) {
@@ -31,21 +29,37 @@ class App extends Component {
   render () {
     return (
       <div>
-        {this.state.dueDates.map(payload => (
-            <Post
-              key={payload.id}
-              selectionId={payload.id}
-              user={payload.user}
-              embeds={payload.embeds}
-              artist={payload.artist}
-              album={payload.album}
-              dueDate={payload.dueDate}
-              />
-          )
-        )}
+        {this.renderPostsOrLoading()}
         <More moreDueDates={this.moreDueDates.bind(this)} />
       </div>
     )
+  }
+
+  renderPostsOrLoading () {
+    let view;
+    if (this.state.fetchCount === 0 && this.state.dueDates.length === 0) {
+      view = (
+        <p>Loading ...</p>
+      )
+    } else if (this.state.fetchCount > 0 && this.state.dueDates.length === 0) {
+      view =(
+        <p>No Albums!</p>
+      )
+    } else {
+      view = this.state.dueDates.map(payload => (
+        <Post
+          key={payload.id}
+          selectionId={payload.id}
+          user={payload.user}
+          embeds={payload.embeds}
+          artist={payload.artist}
+          album={payload.album}
+          dueDate={payload.dueDate}
+          />
+        )
+      )
+    }
+    return view
   }
 
   moreDueDates () {
@@ -66,7 +80,9 @@ class App extends Component {
     }).then((updatedCalendar) => {
       this.setState((previousState, currentProps) => {
         return {
-          dueDates: updatedCalendar.collection()
+          dueDates: updatedCalendar.collection(),
+          fetchCount: previousState.fetchCount + 1
+
         }
       })
     })
