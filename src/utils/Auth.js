@@ -45,7 +45,7 @@ class Auth {
     if (response.authResponse == null) {
       return;
     } else {
-      response.
+      // do stuff
     };
   }
 

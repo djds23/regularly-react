@@ -1,4 +1,5 @@
 import React from 'react'
+import FBLike from './FBLike.js'
 import DueDate from './DueDate.js'
 import UserDetail from './UserDetail.js'
 import ServiceEmbed from './ServiceEmbed.js'
@@ -54,15 +55,7 @@ class AlbumSelection extends React.Component {
         </div>
         <UserDetail user={this.props.user} />
         <DueDate dueDate={this.props.dueDate} />
-       <div
-         className="fb-like"
-         data-href={this.linkForSelection()}
-         data-layout="button"
-         data-action="like"
-         data-size="small"
-         data-show-faces="true"
-         data-share="false">
-       </div>
+        <FBLike albumLink={this.linkForSelection()} />
       </div>
     )
   }
