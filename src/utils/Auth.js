@@ -12,6 +12,20 @@ class Auth {
         frictionlessRequests: true
       })
 
+      // See the official documentation for what this response looks like:
+      // @see https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus
+      //
+      // Example response object
+      //  {
+      //      status: 'connected',
+      //      authResponse: {
+      //          accessToken: '...',
+      //          expiresIn:'...',
+      //          signedRequest:'...',
+      //          userID:'...'
+      //      }
+      //  }
+      //
       window.FB.getLoginStatus((response) => {
         this.statusChangeCallback(response);
       })
@@ -28,6 +42,20 @@ class Auth {
 
   statusChangeCallback (response) {
     console.log(response)
+    if (response.authResponse == null) {
+      return;
+    } else {
+      response.
+    };
+  }
+
+  getFacebookUsername(uId) {
+    window.FB.api(
+      `/${uid}`,
+      (reponse) => {
+        // do stuff
+      }
+    )
   }
 
   loggedIn() {
