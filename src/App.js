@@ -82,7 +82,6 @@ class App extends Component {
         return {
           dueDates: updatedCalendar.collection(),
           fetchCount: previousState.fetchCount + 1
-
         }
       })
     })

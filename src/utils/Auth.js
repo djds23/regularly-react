@@ -1,7 +1,4 @@
 class Auth {
-  constructor () {
-  }
-
   initialize () {
     window.fbAsyncInit = () => {
       window.FB.init({
@@ -30,7 +27,10 @@ class Auth {
         this.statusChangeCallback(response);
       })
     }
+    this.fbsdk()
+  }
 
+  fbsdk() {
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -51,7 +51,7 @@ class Auth {
 
   getFacebookUsername(uId) {
     window.FB.api(
-      `/${uid}`,
+      `/${uId}`,
       (reponse) => {
         // do stuff
       }
